@@ -1,1 +1,14 @@
-site_name: My Docs
+site_name: Dietcube Documentation
+
+pages:
+- Home: 'index.md'
+- Getting Started:
+  - 'Create Project and Configuration': 'getting-started/create.md'
+  - 'Setup Route': 'getting-started/setup-route.md'
+  - 'Modify Controller': 'getting-started/modify-controller.md'
+  - 'Create View': 'getting-started/create-view.md'
+- References:
+  - 'Application': 'references/application.md'
+  - 'Route and Router': 'references/route-and-router.md'
+
+theme: readthedocs
