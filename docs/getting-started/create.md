@@ -19,7 +19,7 @@ If you create project with `your-project`, Dietcube's initialise script replace 
 After created the project, you can try to run the application with PHP built-in server:
 
 
-    $ cd your-project
+    $ cd foo-bar
 
     $ DIET_ENV=development php -d variables_order=EGPCS -S 0:8999 -t webroot/
 
@@ -145,3 +145,73 @@ server {
 CAUTION: Do not use PHP built-in server in production.
 
 ## Configuration
+
+Project skeleton has `config.php` and `config_development.php` in `app/config` directory.
+
+Both of files just returns an array
+
+- `config.php`
+    - `config.php` is always loaded by Application. This config file should include env-independent configuratoin or default configuration.
+- `config_development.php`
+    - `config_development.php` should have env specific configuration. Like `debug` flag, log setting and so far.
+    - `development` is just a example of environment name.
+    - Actually, load file is decieded by `DIET_ENV`, and `config_{DIET_ENV}.php` will be loaded.
+    - Environment specific config will be merged to default config (defined by `config.php`).
+
+
+In fact, the element of `config.php` with the same key will be replaced by environmental configuration.
+
+For example:
+
+`config.php`:
+
+```php
+<?php
+
+use Monolog\Logger;
+
+return [
+    'debug' => false,
+
+    'logger' => [
+        'path' => dirname(dirname(__DIR__)) . '/tmp/app.log',
+        'level' => Logger::WARNING,
+    ],
+];
+```
+
+
+`config_development.php`:
+
+```php
+<?php
+
+use Monolog\Logger;
+
+return [
+    // debug and logger elemnt will be overwritten by this file.
+    'debug' => true,
+
+    'logger' => [
+        'path' => dirname(dirname(__DIR__)) . '/tmp/app_development.log',
+        'level' => Logger::DEBUG,
+    ],
+];
+```
+
+
+`config_production.php`:
+
+```php
+<?php
+
+return [
+    // debug and logger elemnt will not be overwritten by this file.
+
+    // twig file will be cached on production env.
+    'twig' => [
+        'cache' => dirname(dirname(__DIR__)) . '/tmp/twig/',
+    ],
+];
+```
+
