@@ -21,9 +21,9 @@ After created the project, you can try to run the application with PHP built-in 
 
     $ cd foo-bar
 
-    $ DIET_ENV=development php -d variables_order=EGPCS -S 0:8999 -t webroot/
+    $ DIET_ENV=development php -d variables_order=EGPCS -S 0:8080 -t webroot/
 
-Then you can access the application with your browser using `8999` port to the host.
+Then you can access the application with your browser using `8080` port to the host.
 
 ![Created Project](images/create-01.png)
 
