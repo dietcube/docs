@@ -69,3 +69,20 @@ For example:
 - `Api\User::show` means `FooBar\Controller\Api\UserController::show()`.
 
 ## Add a new route information
+
+To create new route information, modify the array returned by `definitiion()` method.
+
+For example:
+
+```
+    public function definition(Container $container)
+    {
+        return [
+            ['GET', '/', 'Top::index'],
+            ['GET', '/user/{name}', 'User::show'],
+        ];
+    }
+```
+
+added `UserController::show($user)` method as a controller for a `/user/xxxxx` path.
+

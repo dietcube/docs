@@ -14,7 +14,7 @@ To create project with project skeleton, run following command:
 `your-project` is just a name of directory to craete. If you already decided your project name, please use that name instead.
 
 This directory name is used for the application namespace.
-If you create project with `your-project`, Dietcube's initialise script replace the namespace of project skeleton from `SampleApp` to `YourProject`. This is camelized name of the directory. (So if you want to create your project with `FooBar` namespace for excample, you have to use `foo-bar` as a direcotry name instead).
+If you create project with `your-project`, Dietcube's initialize script replace the namespace of project skeleton from `SampleApp` to `YourProject`. This is camelized name of the directory. (So if you want to create your project with `FooBar` namespace for excample, you have to use `foo-bar` as a direcotry name instead).
 
 After created the project, you can try to run the application with PHP built-in server:
 
